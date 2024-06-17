@@ -1,0 +1,54 @@
+@import '../../../../styles.scss';
+
+body {
+    color: #fff;
+}
+
+.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+nav {
+    @include dFlex-SB;
+
+    background-color: transparent;
+    padding: 16px 32px;
+    color: #fff;
+}
+
+.navbar-inverse {
+    background-color: #141414;
+}
+
+.logo_plus_links,
+.search_plus_profile {
+    @include dFlex-SB;
+    gap: 64px
+}
+
+.nav-links {
+    @include dFlex-SB;
+    gap: 16px;
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+.logo {
+    img {
+        height: 40px;
+        filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+    }
+}
+
+.profile {
+    width: 34px;
+    padding: 5px;
+    border: 1px solid #fff;
+    border-radius: 100%;
+}

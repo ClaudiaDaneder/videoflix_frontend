@@ -1,0 +1,88 @@
+@import '../../../styles.scss';
+
+.video-section {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #141414;
+    color: #fff;
+}
+
+.video-slider {
+    gap: 16px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 30px 0 30px 64px;
+    position: relative;
+
+    &::-webkit-scrollbar {
+        background-color: #141414;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(161, 161, 161);
+        border: 7px solid #141414;
+        border-radius: 20px;
+        width: 10% !important;
+    }
+
+    .video-card {
+        position: relative;
+        transition: transform 0.4s;
+        z-index: 1; // default z-index
+
+        &:hover {
+            z-index: 10; // bring the hovered card to the front
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        &:hover .thumbnail {
+            filter: brightness(30%);
+        }
+
+        &:hover .video-info {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    .thumbnail {
+        width: 350px;
+        border-radius: 4px;
+        display: block;
+        transition: filter 0.3s;
+    }
+
+    .video-info {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 10; // ensure info is visible in front
+        transition: visibility 0.5s, opacity 0.5s;
+    }
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.video-container {
+    padding: 250px 0 30px 0px;
+    position: relative;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 700;
+    padding-left: 64px;
+}
+
+.video-row {
+    padding-bottom: 30px;
+}

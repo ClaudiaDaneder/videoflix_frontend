@@ -1,0 +1,44 @@
+@import '../../../styles.scss';
+
+section {
+    background-color: #141414;
+    min-height: 100vh;
+    width: 100%;
+    color: #fff
+}
+
+.video-container {
+    padding: 160px 32px 0 32px;
+    @include dFlex-SB;
+    gap: 30px;
+}
+
+.video-player {
+    width: 64%;
+    border-radius: 8px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.video-description {
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.arrow_back {
+    width: 34px;
+    padding: 2px;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    position: absolute;
+    top: 14%;
+    left: 32px;
+}

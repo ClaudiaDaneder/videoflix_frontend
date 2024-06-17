@@ -1,0 +1,19 @@
+<div class="navbar-container">
+    <nav>
+        <div class="logo_plus_links">
+            <a href="content"><div class="logo"><img src="assets/img/logo_long.png"></div>
+            </a>
+        </div>
+
+        @if (this.auth.isLoggedIn()) {
+        <div class="search_plus_profile">
+            <div ngbDropdown class="d-inline-block">
+                <a><img class="profile" src="assets/img/user.png" alt="Profile" ngbDropdownToggle></a>
+                <div ngbDropdownMenu>
+                  <button ngbDropdownItem (click)="logout()">Logout</button>
+                </div>
+              </div>
+        </div>
+        }
+    </nav>
+</div>

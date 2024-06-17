@@ -1,0 +1,16 @@
+<section>
+    <a><img class="arrow_back" src="assets/img/help_icon_arrow_back.svg" alt="Arrow back" title="Go back" (click)="back()"></a>
+    @if (video) {
+    <div class="video-container">
+        <div class="video-info">
+            <h1>{{video.title}}</h1>
+            <div class="video-description">{{video.description}}</div>
+
+        </div>
+
+        <video class="video-player" controls>
+            <source [src]="video_url + video.video_file">
+        </video>
+    </div>
+    }
+</section>

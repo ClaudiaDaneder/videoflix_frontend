@@ -1,0 +1,47 @@
+<section class="video-section">
+    <!-- <div class="background-video-container">
+        <video class="background-video" playsinline autoplay muted loop
+            [poster]="url + 'media/thumbnails/856987-hd_1280_720_24fps.mp4.jpg'">
+            <source [src]="url + '/media/videos_uploaded/original/856987-hd_1280_720_24fps.mp4'" type="video/mp4">
+        </video>
+</div> -->
+    <div class="video-container">
+
+
+        @for (category of categories; track category.value) {
+        @if (hasVideosInCategory(category.value)) {
+        <div class="video-row">
+            <h2>{{category.name}}</h2>
+            <div class="video-slider">
+                @for (video of videos; track $index) {
+                @if (video.categories.includes(category.value)) {
+                <div class="video-card" (click)="openVideo(video.id)" [title]="video.title">
+                    <img class="thumbnail" [src]="url + video.thumbnail_path" [alt]="video.title">
+                    <div class="video-info">
+                        <p class="title"> {{video.title}} </p>
+                    </div>
+                </div>
+                }
+                }
+            </div>
+        </div>
+        }
+        }
+
+
+        <!-- <div class="video-row">
+            <h2>Suggested for You</h2>
+            <div class="video-slider">
+                @for (video of videos; track $index) {
+                <div class="card" (click)="openVideo(video.id)" [title]="video.title">
+                    <img class="thumbnail" [src]="url + video.thumbnail_path" [alt]="video.title">
+                    <div class="video-info">
+                        <p class="title"> {{video.title}} </p>
+                    </div>
+                </div>
+                }
+            </div>
+        </div> -->
+
+    </div>
+</section>

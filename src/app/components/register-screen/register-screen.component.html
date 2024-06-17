@@ -1,0 +1,56 @@
+<div class="register-screen">
+
+    <ngb-toast *ngIf="registrationFailed" type="warning" [delay]="5000"
+        class="bg-warning text-light toast-container position-fixed top-0 p-2" style="z-index: 1200">
+        <strong>Registration failed!</strong> Please try again.
+    </ngb-toast>
+
+
+    <ngb-toast *ngIf="passwordNoMatch" type="warning" [delay]="5000"
+        class="bg-warning text-light toast-container position-fixed top-0 p-2" style="z-index: 1200">
+        Passwords don't match. Please try again
+    </ngb-toast>
+
+
+
+    <div class="register-container">
+        <h1>Create a user</h1>
+        <div class="form-container">
+            <form>
+                <div class="left">
+                    <div class="form-row">
+                        <label for="username">Username</label>
+                        <input type="text" [(ngModel)]="user.username" name="username" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="first_name">First Name</label>
+                        <input type="text" [(ngModel)]="user.first_name" name="first_name" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" [(ngModel)]="user.last_name" name="last_name" required>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="form-row">
+                        <label for="email">Email</label>
+                        <input type="email" [(ngModel)]="user.email" name="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                    </div>
+                    <div class="form-row">
+                        <label for="password">Password</label>
+                        <input type="password" [(ngModel)]="user.password" name="password" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" [(ngModel)]="confirm_password" name="confirmPassword" required>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <button type="submit" (click)="registerUser()" class="register-btn">Register</button>
+
+    </div>
+</div>
+
+<div class="background-image"></div>
