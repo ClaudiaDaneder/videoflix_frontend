@@ -23,7 +23,7 @@ export class LoginScreenComponent {
     try {
       let response: any = await this.auth.loginEmailPassword(this.username, this.password);
       localStorage.setItem('token', response.token);
-      this.router.navigateByUrl('');
+      this.router.navigateByUrl('content');
     } catch (e) {
       console.log(e);
       this.loginFailed = true;

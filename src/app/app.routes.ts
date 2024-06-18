@@ -5,7 +5,7 @@ import { RegisterScreenComponent } from './components/register-screen/register-s
 import { VideoDetailComponent } from './components/video-detail/video-detail.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'content', pathMatch: 'full' },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'content', component: VideoOverviewComponent },
     { path: 'login', component: LoginScreenComponent },
     { path: 'register', component: RegisterScreenComponent },

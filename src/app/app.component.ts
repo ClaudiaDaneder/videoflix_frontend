@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,12 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 })
 export class AppComponent {
   title = 'videoflix_frontend';
+  auth = inject(AuthService);
+  router = inject(Router);
+
+  constructor() {
+    if (this.auth.isLoggedIn()) {
+      this.router.navigate(['content'])
+    }
+  }
 }
