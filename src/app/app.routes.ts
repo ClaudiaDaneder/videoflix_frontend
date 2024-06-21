@@ -6,6 +6,7 @@ import { VideoDetailComponent } from './components/video-detail/video-detail.com
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ActivateAccountComponent } from './components/activate-account/activate-account.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -16,4 +17,6 @@ export const routes: Routes = [
     { path: 'reset-password-form/:ref', component: ResetPasswordComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent },
     { path: 'activate/:activation_token', component: ActivateAccountComponent },
+    { path: '404', component: NotFoundComponent },
+    { path: '**', component: NotFoundComponent }
 ];

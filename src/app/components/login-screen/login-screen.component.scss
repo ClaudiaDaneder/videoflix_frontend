@@ -14,7 +14,7 @@
     z-index: 2;
     color: #fff;
     padding: 48px 68px 18px 68px;
-    display: flex;
+    @include dFlex-SB;
     flex-direction: column;
 }
 
@@ -29,10 +29,7 @@
     background-position: center;
 }
 
-h1 {
-    font-weight: 700;
-    font-size: 32px;
-}
+
 
 .form-container {
     margin-top: 30px;

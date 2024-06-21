@@ -1,0 +1,25 @@
+@import '../../../styles.scss';
+
+.arrow_back {
+    width: 34px;
+    padding: 2px;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    position: absolute;
+    top: 14%;
+    left: 32px;
+    z-index: 3;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url(../../../assets/img/movie-theater-2093264_1920.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    @include dFlex-C;
+    color: #fff
+}
