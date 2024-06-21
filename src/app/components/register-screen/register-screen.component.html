@@ -6,10 +6,10 @@
     </ngb-toast>
 
 
-    <ngb-toast *ngIf="passwordNoMatch" type="warning" [delay]="5000"
+    <!-- <ngb-toast *ngIf="passwordNoMatch" type="warning" [delay]="5000"
         class="bg-warning text-light toast-container position-fixed top-0 p-2" style="z-index: 1200">
         Passwords don't match. Please try again
-    </ngb-toast>
+    </ngb-toast> -->
 
 
 
@@ -20,37 +20,70 @@
                 <div class="left">
                     <div class="form-row">
                         <label for="username">Username</label>
-                        <input type="text" [(ngModel)]="user.username" name="username" required>
+                        <input type="text" [(ngModel)]="user.username" name="username" #username="ngModel" required>
+                        <div [ngClass]="{'alert-transparent': username.valid || username.pristine, 'alert-visible': !username.valid && username.dirty && username.errors?.['required']}">Username is required.
+                        </div>
                     </div>
                     <div class="form-row">
                         <label for="first_name">First Name</label>
-                        <input type="text" [(ngModel)]="user.first_name" name="first_name" required>
+                        <input type="text" [(ngModel)]="user.first_name" name="first_name" required
+                            #first_name="ngModel">
+                        <div [ngClass]="{'alert-transparent': first_name.valid || first_name.pristine, 'alert-visible': !first_name.valid && first_name.dirty && first_name.errors?.['required']}">
+                            First name is required.
+                        </div>
                     </div>
                     <div class="form-row">
                         <label for="last_name">Last Name</label>
-                        <input type="text" [(ngModel)]="user.last_name" name="last_name" required>
+                        <input type="text" [(ngModel)]="user.last_name" name="last_name" required #last_name="ngModel">
+                        <div [ngClass]="{'alert-transparent': last_name.valid || last_name.pristine, 'alert-visible': !last_name.valid && last_name.dirty && last_name.errors?.['required']}">
+                            Last name is required.
+                        </div>
                     </div>
                 </div>
                 <div class="right">
                     <div class="form-row">
                         <label for="email">Email</label>
-                        <input type="email" [(ngModel)]="user.email" name="email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                        <input type="email" [(ngModel)]="user.email" name="email" required
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" #email="ngModel">
+
+                        <ng-container>
+                            <div class="p-rel">
+                                <div class="alert-transparent p-abs">placeholder</div>
+                                <div *ngIf="email.errors?.['required'] && email.dirty" class="alert-visible">
+                                    Email address is required.
+                                </div>
+                                <div *ngIf="email.errors?.['pattern'] && !email.errors?.['required'] && email.dirty"
+                                    class="alert-visible">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+                        </ng-container>
                     </div>
                     <div class="form-row">
                         <label for="password">Password</label>
-                        <input type="password" [(ngModel)]="user.password" name="password" required>
+                        <input type="password" [(ngModel)]="user.password" name="password" required #password="ngModel">
+                        <div [ngClass]="{'alert-transparent': password.valid || password.pristine, 'alert-visible': !password.valid && password.dirty && password.errors?.['required']}">
+                            Password is required.
+                        </div>
                     </div>
 
                     <div class="form-row">
                         <label for="confirmPassword">Confirm Password</label>
-                        <input type="password" [(ngModel)]="confirm_password" name="confirmPassword" required>
+                        <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required
+                            #confirm_password="ngModel">
+                        <div [ngClass]="{'alert-transparent': confirm_password.valid || confirm_password.pristine, 'alert-visible': !confirm_password.valid && confirm_password.dirty && confirm_password.errors?.['required']}">
+                            Please confirm your password.
+                        </div>
+                        <div *ngIf="passwordNoMatch" class="alert-visible">
+                            Passwords don't match. Please try again.
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
         <button type="submit" (click)="registerUser()" class="register-btn">Register</button>
-
     </div>
+
 </div>
 
 <div class="background-image"></div>

@@ -23,13 +23,13 @@ export class RegisterScreenComponent {
     last_name: '',
     password: ''
   };
-  confirm_password = '';
+  confirmPassword: string = '';
   registrationFailed: boolean = false;
   passwordNoMatch: boolean = false;
 
 
   async registerUser() {
-    if (this.user.password !== this.confirm_password) {
+    if (this.user.password !== this.confirmPassword) {
       this.passwordNoMatch = true;
       setTimeout(() => {
         this.passwordNoMatch = false;
@@ -37,9 +37,9 @@ export class RegisterScreenComponent {
       return;
     }
 
+
     try {
-      let response: any = await this.auth.registerUser(this.user);
-      console.log('User registration successful', response);
+      await this.auth.registerUser(this.user);
       this.router.navigateByUrl('login')
     } catch (e) {
       this.registrationFailed = true;

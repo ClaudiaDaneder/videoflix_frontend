@@ -43,4 +43,21 @@ export class AuthService {
     let url = environment.baseURL + 'register/';
     return lastValueFrom(this.http.post<User>(url, user));
   }
+
+  sendResetPasswordLink(data: any) {
+    let url = environment.baseURL + 'password_reset/';
+    return lastValueFrom(this.http.post(url, data))
+  }
+
+  resetPassword(data: any) {
+    let url = environment.baseURL + `password_reset/confirm/?token=${data.token}`;
+    return lastValueFrom(this.http.post(url, data))
+  }
+
+
+  activateAccount(token: string) {
+    let url = environment.baseURL + `activate/`;
+    let data= { activation_token: token }
+    return lastValueFrom(this.http.post(url, data))
+  }
 }
